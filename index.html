@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS animations CPU usage</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+        font-size: 1.5em;
+        padding: 2em;
+      }
+
+      div {
+        position: absolute;
+        left: 0;
+        margin: 10vh 0;
+        width: 10vw;
+        height: 10vw;
+        background: salmon;
+        -webkit-transition: -webkit-transform;
+                transition: transform;
+        -webkit-animation: shift 1s linear infinite alternate paused;
+                animation: shift 1s linear infinite alternate paused;
+      }
+
+      div.animating {
+        -webkit-animation-play-state: running;
+                animation-play-state: running;
+      }
+
+      @-webkit-keyframes shift {
+        0% {
+          -webkit-transform: translate3d(90vw, 0, 0);
+                  transform: translate3d(90vw, 0, 0);
+        }
+        100% {
+          -webkit-transform: translate3d(0, 0, 0);
+                  transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes shift {
+        0% {
+          -webkit-transform: translate3d(90vw, 0, 0);
+                  transform: translate3d(90vw, 0, 0);
+        }
+        100% {
+          -webkit-transform: translate3d(0, 0, 0);
+                  transform: translate3d(0, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Why do even the most simple CSS animations take roughly 10% processing power?
+    </h1>
+    <button>Toggle Animation</button>
+    <div></div>
+    <script>
+      var el = document.querySelector('div')
+
+      document.querySelector('button')
+      .addEventListener('click', function() {
+        el.classList.toggle('animating');
+      })
+    </script>
+  </body>
+</html>
