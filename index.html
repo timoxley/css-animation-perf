@@ -59,11 +59,16 @@
   </head>
   <body>
     <h1>
-      Why do even the most simple CSS animations take significant processing power?
+      Why do simple CSS animations take significant processing power in some browsers?
     </h1>
     <p>
-      I'm seeing ~10% CPU load and ~10% GPU load on Chrome. ~20% CPU usage by Firefox.
+      I'm seeing:
     </p>
+    <ul>
+      <li>~10% CPU load and ~10% GPU load on Chrome.</li>
+      <li>~20% CPU usage by Firefox.</li>
+      <li>~0.1% CPU usage by Safari</li>
+    </ul>
     <button>Toggle Animation</button>
     <div></div>
     <script>
